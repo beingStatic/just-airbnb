@@ -2,18 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-@font-face {
-  font-family: monosans;
-  src: url('../../public/font/Mona-Sans-Regular.ttf');
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: monosans;
+  height: 100%;
 }
