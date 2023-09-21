@@ -1,8 +1,11 @@
+'use client'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
 import Navbar from './components/navbar/Navbar'
-import Modal from './components/modals/Modals'
+import Modal from './components/modals/Modal'
+import RegisterModal from './components/modals/RegisterModal'
+import ToasterProvider from './providers/ToasterProvider'
 
 
 export const metadata: Metadata = {
@@ -21,11 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Modal
-          isOpen
-          title="Login Modal"
-          actionLabel='Submit'
-        />
+        <ToasterProvider />
+        <RegisterModal />
         <Navbar />{children}</body>
     </html>
   )
