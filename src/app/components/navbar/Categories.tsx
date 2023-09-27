@@ -7,6 +7,7 @@ import { FaSkiing } from "react-icons/fa"
 import { BsSnow } from "react-icons/bs"
 import { IoDiamond } from "react-icons/io5"
 import CategoryBox from "../CategoryBox";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export const categories = [
   {
@@ -92,6 +93,14 @@ export const categories = [
 
 ]
 const Categories = () => {
+  const params = useSearchParams();
+  const category = params?.get('category');
+  const pathname = usePathname();
+
+  const isMainPage = pathname === '/';
+  if (!isMainPage) {
+    return null
+  }
   return (<>
     <Container>
       <div
@@ -101,15 +110,14 @@ const Categories = () => {
             flex-row
             items-center
             justify-between
-            no-scrollbar
             overflow-x-auto"
       >
             {categories.map(item => {
           return <CategoryBox 
               key={item.label}
               label={item.label}
-              icon={item.icon}
-              // description={item.description}
+            icon={item.icon}
+            selected = {category === item.label}
               /> })} 
       </div>
       
