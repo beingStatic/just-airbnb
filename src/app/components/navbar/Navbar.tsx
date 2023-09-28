@@ -22,9 +22,9 @@ const Navabr = () => {
             <Search />
             <UserMenu />
           </div>
-            <Categories />
         </Container>
       </div>
+      <Categories />
     </div>
   );
 };

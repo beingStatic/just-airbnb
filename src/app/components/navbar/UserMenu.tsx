@@ -4,18 +4,26 @@ import Avatar from '../Avatar';
 import { useCallback, useState } from 'react';
 import MenuItem from './MenuItem';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
+import useRentModal from '@/app/hooks/useRentModal';
 
 const UserMenu = () => {
-  const registerModal  = useRegisterModal()
+  const registerModal = useRegisterModal()
+  const rentModal = useRentModal()
   const [isOpen, setIsOpen] = useState(false);
+
 const handleToggle = useCallback(() => {
   setIsOpen((value)=>!value)
-},[])
+}, [])
+  
+  const onRent = useCallback(() => {
+   rentModal.onOpen()
+ },[rentModal]) 
+  
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div 
-          onClick={() => { }}
+          onClick={onRent}
           className="
             hidden
             md:block
