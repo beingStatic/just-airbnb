@@ -56,6 +56,7 @@ const Modal: React.FC<ModalProps> = ({
     if (disabled || !secondaryAction) {
       return;
     }
+    secondaryAction()
   }, [disabled, secondaryAction])
   
   // This code checks the isOpen value to display the output
