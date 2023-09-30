@@ -45,6 +45,7 @@ const RentModal = () => {
   })
 
   const category = watch('category');
+  const location = watch('location');
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldValidate: true,
@@ -112,12 +113,12 @@ const RentModal = () => {
           title='Where is your place located'
           subTitle='Help guests find you' />
         <CountrySelect
-        
+          value={location}
+          onChange={(value)=> setCustomValue('location',value)}
         />
       </div>
     )
   }
-console.log(step)
   return (
     <Modal
       isOpen={rentModal.isOpen}
