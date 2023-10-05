@@ -1,3 +1,4 @@
+'use client';
 import Container from "../Container";
 import {TbBeach} from "react-icons/tb"
 import {GiBoatFishing, GiWindmill,GiIsland, GiCastle, GiForestCamp, GiCactus,GiCaveEntrance, GiBarn} from "react-icons/gi"

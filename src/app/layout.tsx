@@ -1,4 +1,4 @@
-'use client'
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
