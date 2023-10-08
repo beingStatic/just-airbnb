@@ -7,6 +7,7 @@ import Modal from './components/modals/Modal'
 import RegisterModal from './components/modals/RegisterModal'
 import ToasterProvider from './providers/ToasterProvider'
 import RentModal from './components/modals/RentModal'
+import LoginModal from './components/modals/LoginModal'
 
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({
         <ToasterProvider />
         <RentModal />
         <RegisterModal />
+        <LoginModal />
         <Navbar />{children}</body>
     </html>
   )

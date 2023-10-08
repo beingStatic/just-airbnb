@@ -5,9 +5,11 @@ import { useCallback, useState } from 'react';
 import MenuItem from './MenuItem';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useRentModal from '@/app/hooks/useRentModal';
+import useLoginModal from '@/app/hooks/useLoginModal';
 
 const UserMenu = () => {
   const registerModal = useRegisterModal()
+  const loginModal = useLoginModal();
   const rentModal = useRentModal()
   const [isOpen, setIsOpen] = useState(false);
 
@@ -78,7 +80,7 @@ const handleToggle = useCallback(() => {
           ">
           <div className='flex flex-col cursor-pointer'>
             <>
-              <MenuItem lable="Login" onClick={() => { }}></MenuItem>
+              <MenuItem lable="Login" onClick={loginModal.onOpen}></MenuItem>
               <MenuItem lable="Sign Up" onClick={registerModal.onOpen}></MenuItem>
               </>
           </div>
