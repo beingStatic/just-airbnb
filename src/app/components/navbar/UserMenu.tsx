@@ -6,8 +6,16 @@ import MenuItem from './MenuItem';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useRentModal from '@/app/hooks/useRentModal';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import { signOut } from 'next-auth/react';
+import { SafeUser } from '@/app/types';
 
-const UserMenu = () => {
+interface UserMenuProps {
+  currentUser?: SafeUser | null
+}
+
+const UserMenu: React.FC<UserMenuProps> = ({
+  currentUser
+}) => {
   const registerModal = useRegisterModal()
   const loginModal = useLoginModal();
   const rentModal = useRentModal()
@@ -79,10 +87,47 @@ const handleToggle = useCallback(() => {
           text-sm
           ">
           <div className='flex flex-col cursor-pointer'>
-            <>
-              <MenuItem lable="Login" onClick={loginModal.onOpen}></MenuItem>
-              <MenuItem lable="Sign Up" onClick={registerModal.onOpen}></MenuItem>
+            {currentUser ? ( 
+              <>
+                <MenuItem
+                  lable="My Trips"
+                  onClick={() => { }}
+                />
+                <MenuItem
+                  lable="My favorites"
+                  onClick={() => { }}
+                />
+                <MenuItem
+                  lable="My reservations"
+                  onClick={() => { }}
+                />
+                <MenuItem
+                  lable="My properties"
+                  onClick={() => { }}
+                />
+                <MenuItem
+                  lable="Airbnb my home"
+                  onClick={() => { }}
+                />
+                <hr />
+                <MenuItem
+                  lable="Log out"
+                  onClick={() => signOut()}
+                />
               </>
+            ): (
+              <>
+                  <MenuItem
+                    lable="Login"
+                    onClick={loginModal.onOpen}
+                  />
+                  <MenuItem
+                    lable="Sign Up"
+                    onClick={registerModal.onOpen}
+                  />
+                  </>
+            )}
+            
           </div>
         </div>
       )}

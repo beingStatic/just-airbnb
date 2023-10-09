@@ -1,9 +1,18 @@
+'use client'
+
 import Container from '../Container'
 import Categories from './Categories';
 import Logo from './Logo';
 import Search from './Search';
 import UserMenu from './UserMenu';
-const Navabr = () => {
+import { SafeUser } from '@/app/types';
+
+interface navbarProps{
+  currentUser?:SafeUser | null
+}
+const Navabr: React.FC<navbarProps> = ({
+  currentUser
+}) => {
   return (
     <div className="fixed w-full z-10 bg-white shadow-sm">
       <div className="p-4 border-b-[1px]">
@@ -20,7 +29,7 @@ const Navabr = () => {
           >
             <Logo />
             <Search />
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </div>
         </Container>
       </div>
